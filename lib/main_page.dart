@@ -64,26 +64,24 @@ class Profile extends StatelessWidget {
                     height: 45,
                     width: 174.94,
                     margin: EdgeInsets.fromLTRB(22.57, 35, 0, 0),
-                    child: Container(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Nama Pengguna',
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w700,
-                                fontSize: 18),
-                          ),
-                          Text(
-                            '2406416351',
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 13,
-                                fontWeight: FontWeight.w500),
-                          )
-                        ],
-                      ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Nama Pengguna',
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w700,
+                              fontSize: 18),
+                        ),
+                        Text(
+                          '2406416351',
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 13,
+                              fontWeight: FontWeight.w500),
+                        )
+                      ],
                     ),
                   )
                 ],
@@ -118,7 +116,7 @@ class Profile extends StatelessWidget {
                 margin: EdgeInsets.fromLTRB(34, 25, 0, 0),
                 child: Row(
                   children: [
-                    Container(
+                    SizedBox(
                       width: 51,
                       height: 19,
                       child: SizedBox(
@@ -255,69 +253,67 @@ class _TransaksiState extends State<Transaksi> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListView.builder(
-        padding: const EdgeInsets.all(8),
-        itemCount: transaksiList.length,
-        itemBuilder: (context, index) {
-          final transaksi = transaksiList[index];
-          return Container(
-            height: 80,
-            width: 337,
-            margin: const EdgeInsets.fromLTRB(28, 18, 28, 0),
-            decoration: BoxDecoration(
-              color: Color(0xFFFFFFFF),
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  alignment: Alignment.centerLeft,
-                  child: Column(
-                    children: [
-                      Container(
-                        margin: EdgeInsets.fromLTRB(12, 23, 0, 0),
-                        padding: const EdgeInsets.only(left: 10),
-                        alignment: Alignment.centerLeft,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              transaksi['nama']!,
-                              style: const TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w700,
-                              ),
+    return ListView.builder(
+      padding: const EdgeInsets.all(8),
+      itemCount: transaksiList.length,
+      itemBuilder: (context, index) {
+        final transaksi = transaksiList[index];
+        return Container(
+          height: 80,
+          width: 337,
+          margin: const EdgeInsets.fromLTRB(28, 18, 28, 0),
+          decoration: BoxDecoration(
+            color: Color(0xFFFFFFFF),
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                alignment: Alignment.centerLeft,
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.fromLTRB(12, 23, 0, 0),
+                      padding: const EdgeInsets.only(left: 10),
+                      alignment: Alignment.centerLeft,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            transaksi['nama']!,
+                            style: const TextStyle(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w700,
                             ),
-                            Text(
-                              transaksi['tanggal']!,
-                              style: TextStyle(
-                                  fontSize: 12, fontWeight: FontWeight.w400),
-                            ),
-                          ],
-                        ),
+                          ),
+                          Text(
+                            transaksi['tanggal']!,
+                            style: TextStyle(
+                                fontSize: 12, fontWeight: FontWeight.w400),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.fromLTRB(0, 0, 25, 0),
-                  child: Text(
-                    transaksi['amount']!,
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w700,
-                      color: transaksi['warna'],
                     ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.fromLTRB(0, 0, 25, 0),
+                child: Text(
+                  transaksi['amount']!,
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w700,
+                    color: transaksi['warna'],
                   ),
                 ),
-              ],
-            ),
-          );
-        },
-      ),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }
